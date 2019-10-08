@@ -1,0 +1,77 @@
+<html>
+
+<body onload="appController.init()">
+    <div class="row p-4">
+        <div class="col-md-5 pt-2 mr-5">
+            <form id="productForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text"
+                        class="form-control form-control-sm"
+                        id="name">
+                </div>
+                <div class="form-group">
+                    <label for="baseValue">Base value</label>
+                    <input type="number"
+                        class="form-control form-control-sm"
+                        id="baseValue">
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number"
+                        class="form-control form-control-sm"
+                        id="quantity">
+                </div>
+                <button onclick="appController.add()"
+                    class="btn btn-sm btn-success"
+                    type="button">Add</button>
+                <button onclick="appController.clearForm()"
+                    class="btn btn-sm btn-danger"
+                    type="button">Clear</button>
+            </form>
+        </div>
+
+        <div class="col-md-5">
+            <input id="filter"
+                type="text"
+                placeholder="Filter by product name"
+                class="form-control form-control-sm mb-2" />
+            <div class="border p-3 overflow-auto"
+                style="height: 450px">
+                Products
+                <div id="products"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 p-3">
+                    <button class="btn btn-sm btn-primary"
+                        onclick="appController.printShoppingCart()">Print</button>
+                </div>
+                <div class="col-md-4 pt-3">
+                    Total: <span id="total"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="./app.controller.js"></script>
+
+<script src="./product/product.model.js"></script>
+<script src="./product/product.view.js"></script>
+
+<script src="./shopping-cart/shopping-cart.controller.js"></script>
+<script src="./shopping-cart/shopping-cart.facade.js"></script>
+<script src="./shopping-cart/shopping-cart.model.js"></script>
+<script src="./shopping-cart/shopping-cart.view.js"></script>
+
+<script src="./shared/debounce.js"></script>
+
+<script>
+    const appController = new AppController();
+</script>
+
+<link rel="stylesheet"
+    type="text/css"
+    href="bootstrap.min.css">
