@@ -11,10 +11,11 @@ class ShoppingCartFacade {
     }
 
     removeProduct(id) {
-        this._shoppingCart.products.splice(
-            this._shoppingCart.products.findIndex(product => {
-                return product.id === id;
-            }), 1);
+        const removeIndex = this._shoppingCart.products.findIndex(product => product.id === id);
+
+        if (removeIndex > -1) {
+            this._shoppingCart.products.splice(removeIndex, 1);
+        }
     }
 
     filterProducts(name) {
@@ -31,6 +32,6 @@ class ShoppingCartFacade {
     }
 
     getShoppingCart() {
-        return this._shoppingCart;
+        return Object.assign(new ShoppingCart(), this._shoppingCart);
     }
 }

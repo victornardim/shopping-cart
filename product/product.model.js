@@ -12,19 +12,19 @@ class Product {
 
     validate() {
         if (!this.name) {
-            throw new Error('Name is required.');
+            throw new Error('Name is required');
         }
 
         if (isNaN(this.baseValue)) {
-            throw new Error('Base value is required.');
+            throw new Error('Base value is required');
         }
 
         if (this.baseValue === 0) {
-            throw new Error('Base value must be greater than 0.');
+            throw new Error('Base value must be greater than 0');
         }
 
         if (!this.quantity) {
-            throw new Error('Quantity is required.');
+            throw new Error('Quantity is required');
         }
     }
 }
