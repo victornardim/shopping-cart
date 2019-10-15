@@ -19,7 +19,7 @@ class Product {
             throw new Error('Base value is required');
         }
 
-        if (this.baseValue === 0) {
+        if (this.baseValue <= 0) {
             throw new Error('Base value must be greater than 0');
         }
 
